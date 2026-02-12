@@ -38,7 +38,7 @@
 
 ### Phase 5: SEO & Deployment
 - [x] Generate sitemap (sitemap.ts + robots.ts)
-- [ ] Create GitHub repository
+- [x] Create GitHub repository (https://github.com/zenoura00/Lafumee.com)
 - [ ] Deploy to Netlify
 
 ## Notes
