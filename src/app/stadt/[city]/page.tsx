@@ -7,18 +7,18 @@ import { ShishaIcon, CocktailIcon, DJIcon } from "@/components/icons/AnimatedIco
 import { MapPin, ArrowRight, Phone, Clock } from "lucide-react";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ city: string }>;
 }
 
 export async function generateStaticParams() {
   return cities.map((city) => ({
-    slug: city.slug,
+    city: city.slug,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const city = cities.find((c) => c.slug === slug);
+  const { city: citySlug } = await params;
+  const city = cities.find((c) => c.slug === citySlug);
 
   if (!city) {
     return {
@@ -39,8 +39,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export default async function StadtPage({ params }: PageProps) {
-  const { slug } = await params;
-  const city = cities.find((c) => c.slug === slug);
+  const { city: citySlug } = await params;
+  const city = cities.find((c) => c.slug === citySlug);
 
   if (!city) {
     notFound();
